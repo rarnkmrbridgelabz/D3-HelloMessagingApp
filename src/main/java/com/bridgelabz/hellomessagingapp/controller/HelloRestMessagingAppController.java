@@ -1,14 +1,11 @@
 package com.bridgelabz.hellomessagingapp.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/hello")
 public class HelloRestMessagingAppController {
-    @GetMapping(value = {"", "/", "/home"}) 
+    @GetMapping(value = {"", "/", "/home"})
     public String sayHello(){
         return "Hello From Bridgelabz!";
     }
@@ -17,4 +14,7 @@ public class HelloRestMessagingAppController {
     public String queryParam(@RequestParam String name){
         return "Hello "+name+" From Bridgelabz";
     }
+    @GetMapping("/param/{name}")
+    public String getName (@PathVariable String name) {
+        return "Hello "+name+" From Bridgelabz";    }
 }
